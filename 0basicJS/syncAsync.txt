@@ -1,0 +1,44 @@
+________________________________________________________________Synchronous vs Asynchronous_____________________________________________________________________________________________________________________
+
+
+-----> By default, JavaScript is a synchronous( ll wait ), single threaded programming language. (it means ,second command will wait for first command to be executed ....)
+
+But this method (synchronous), comes along with disadvantages.
+            Say we wanted to fetch some large amount of data from a database and then display it on our interface. 
+            When the interpreter reaches the instruction that fetches this data, the rest of the code is blocked from executing until the data has been fetched and returned.
+
+-----> Luckily for us, the problems with synchronous JavaScript were addressed by introducing asynchronous JavaScript.
+            When JavaScript is running asynchronously, the instructions are not necessarily executed one after the other
+
+________________________________________________________________________________________________________________________________________________________________________________________________________________
+synchronous method --> {i.e  second task will WAiT for the first task to get completed } these r blocking functions, means blocking the next command from execution }
+                   --> example:  fs.readFileSync(), fs.writeFileSync()     etc etc.
+                   -->           const fs = require("fs");                         
+                                 const data = fs.readFileSync('letxyg.txt');
+                                 console.log(data);                              
+                                 console.log('operation completed');
+                                              
+                                 //output-   hello i am some data from letxyz.txt file
+                                             operation completed
+                      
+asynchronous method -->{every single task will keep working in bg }, if the first task is taking some time to get completed so it will execute the other task in the queue.....,also these are non blocking fns 
+                    --> example:  fs.readFile(), fs.writeFile()        etc etc..
+                    -->          const fs = require("fs"); 
+                                 fs.readFile('letxyg.txt',(err,data)=>{       
+                                   console.log(data);
+                                 });
+                                 console.log('operation completed');
+                                 //output- operation completed    
+                                           hello i am some data from letxyz.txt file 
+________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+ NOTE: There are several ways to deal with an asynchronous code: callbacks, promises and async/await.
+
+//// In order to properly implement this asynchronous behavior, there are a few different solutions developers has used over the years. 
+//// Each solution improves upon the previous one, which makes the code more optimized and easier to understand in case it gets complex.
+//// To further understand the asynchronous nature of JavaScript, we will go through callback functions, promises, and async and await.
+
+
+???????????????????????????????????????????????????? WHAT ARE CALLBACKS IN JAVASCRIPT ??????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????? 
+ If we want to execute a function right after the return of some other function, then callbacks can be used.
+ A callback is a FUNCTION, passed as an argument to another function ; This technique allows a function to call another function ; A callback function can run after another function has finished

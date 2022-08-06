@@ -1,0 +1,82 @@
+______________________________________________________________________________________________________________________________________________________________________
+//FUNCTION STATEMENT aka FUNCTION DECLARATION
+  function a(){
+      console.log("a called")
+  }
+  
+//FUNCTION EXPRESSION
+  var b = function (){                 -----> here we hv assigned a anonymous fn to variable b
+      console.log("b called")
+  }
+
+//EXAMPLE TO UNNDERSTAND DIFF BETWEEN fn statement and fn DECLARATION
+                            a();
+                            b();
+                            function a(){
+                                console.log("a called")
+                            }
+                            var b = function (){
+                                console.log("b called")
+                            }                             
+                                  ----output------> a fn will run ,and b fn will throw error
+                                  (means b fn treated as variable,hence accor to hoisiting concept,b will we throw undefined error)
+______________________________________________________________________________________________________________________________________________________________________
+
+//ANONYMOUS FUNCTION
+  function (){                      ---------------> ERROR_______such anonymous fn will throw error.....
+      console.log("anonymous");                      but if these gonna throw error ,then where we gonna use these?
+  }                                                  we can assign anonymous fn to a variable (see fn expression) 
+______________________________________________________________________________________________________________________________________________________________________
+//NAMED FUNCTION EXPRESSION
+  var b = function xyz(){                 -----> here we hv assigned a named fn to variable b (that is it ,much similar to above fn expression)
+        console.log("b called")                                                            (just use named fn in fn expression insteasd of anonymous fn)
+    }
+  
+  b();          ----->b called
+  xyz():        -----> ERROR :)xyz is not defined(it is created as a local variable)
+______________________________________________________________________________________________________________________________________________________________________
+
+                                okay! SO THE MOST IMPORTANT PART OF THIS TUTORIAL IS HERE :-
+
+----------------------------------------------------FIRST CLASS FUNCTION----------------------------------------------------------------------------------------------
+    A programming language is said to HAVE- First-class functions, if functions in that language are treated like other variables.
+    So the functions can be "assigned to any other variable" or "passed as an argument" or "can be returned by another function".
+    JavaScript treat function as a first-class-citizens. 
+    This means that functions are simply a value and are just another type of object.
+
+#$# Assigning function to a variable:
+  
+                    var greet = function() {
+                      return "Hello!";
+                    }                  --->Here, we have assigned the variable greet to an anonymous function than returns a text.
+
+                    --->We can also use a named function instead of an anonymous function.
+                    var greet = function hola() {
+                      return "Hello!";          
+                    }
+
+#$# Passing function as an argument to another function :
+                    //JavaScript function definitions do not specify data types for parameters.|JavaScript functions do not perform type checking on the passed arguments.|JavaScript functions do not check the number of arguments received.
+
+
+
+
+
+
+
+
+
+
+
+
+
+#$# Returning a function: Higher-Order function:
+
+                    function greet() {
+                        return function() {
+                            return "Hello there!";}
+                    }
+                    const message = greet();
+                    console.log(message());
+ 
+                 

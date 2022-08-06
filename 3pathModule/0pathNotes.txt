@@ -1,0 +1,67 @@
+                   The Path module provides a way of working with directories and file paths
+
+
+---------------------*********************************************************************------------------------------------------
+ path.join(path, ...) ------> this method provides you with a way to concatenate multiple path segments together to form a new path.
+ The join() method accepts as many path parameters as you need. The paths are specified as string types and separated by a comma.
+ The method will normalize the path segments and return a joined string path
+
+ example1:           const path = require('path');
+                     const myPath = path.join("users", "admin", "index.js");
+                     console.log(myPath);                           ------> users/admin/index.j
+
+ example2:           const path = require('path');
+                     const myPath = path.join("users", "admin", "../index.js");
+                     console.log(myPath);                           ------> users/index.js
+                     const anotherPath = path.join("home","users", "../admin", "index.js");
+                     console.log(anotherPath);                      ------> home/admin/index.j
+                     console.log(anotherPath);                      ------> home/admin/index.j
+    
+---------------------*********************************************************************------------------------------------------
+
+
+---------------------*********************************************************************------------------------------------------
+ path.dirname(path)  ----->this method provides the directory name of a path. Similar to the Unix dirname command
+ This function accepts one parameter only,i.e  It is the file path (string only) that would be used to extract the directory name.
+
+ Example1:           const path = require('path');  
+                     // Complete file path
+                     path1 = path.dirname("/users/admin/website/index.html");
+                     console.log(path1)                             ----------> /users/admin/website
+                     
+                     // Only file name
+                     // returns a period (.)
+                     path2 = path.dirname("readme.md");
+                     console.log(path2)                             ----------> .
+                     
+                     // Path with file not specified
+                     path3 = path.dirname("website/post/comments")
+                     console.log(path3);                            ----------> website/post
+
+
+ example2:           const path = require('path');
+                     console.log("File name:", __filename);         ----------> File name:  G:\tutorials\nodejs-path-dirname\index.js
+                     
+                     path1 = path.dirname(__filename);              
+                     console.log(path1);                            ----------> G:\tutorials\nodejs-path-dirname      
+                     console.log("Directory name:", __dirname);     ----------> Directory name:  G:\tutorials\nodejs-path-dirname
+
+                     path2 = path.dirname(__dirname);
+                     console.log(path2);                            ----------> G:\tutorials
+
+---------------------*********************************************************************------------------------------------------
+
+similarily ,we have many other methods in path module..........Node.js Assert Complete Reference
+
+Node.js path.join() Method                  🗸
+Node.js path.dirname() Method               🗸
+Node.js path.basename() Method
+Node.js path.delimiter Property
+Node.js path.extname() Method
+Node.js path.format() Method
+Node.js path.isAbsolute() Method
+Node.js path.normalize() Method
+Node.js path.parse() Method
+Node.js path.relative() Method
+Node.js path.resolve() Method
+Node.js path.toNamespacedPath() Method

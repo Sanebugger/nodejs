@@ -1,0 +1,38 @@
+****************************************************************************************************************************************************************
+To handle --FILE OPERATIONS-- like creating, reading, deleting, etc., NODE.JS provides an inbuilt module called FS (File System).
+**************************************************************************************************************************************************************** 
+               -> All file system operations can have SYNCHRONOUS and ASYNCHRONOUS forms, depending upon user requirements......... 
+               ___________________________________________________
+               Q.1. What is Synchronous and Asynchronous approach?
+               
+               synchronous method --> {i.e  second task will WAiT for the first task to get completed } these r blocking functions, means blocking the next command from execution }
+                                  --> example:  fs.readFileSync(), fs.writeFileSync()     etc etc....
+
+                                  -->           const fs = require("fs");                         
+                                                const data = fs.readFileSync('letxyg.txt');
+                                                console.log(data);                              
+                                                console.log('operation completed');
+                                                             
+                                                //output-   hello i am some data from letxyz.txt file
+                                                            operation completed
+                                     
+               asynchronous method -->{every single task will keep working in bg }, if the first task is taking some time to get completed so it will execute the other task in the queue.....,also these are non blocking fns 
+                                   --> example:  fs.readFile(), fs.writeFile()        etc etc.... 
+
+                                   -->          const fs = require("fs"); 
+                                                fs.readFile('letxyg.txt',(err,data)=>{       
+                                                  console.log(data);
+                                                });
+                                                console.log('operation completed'); 
+        
+                                                //output- operation completed    
+                                                          hello i am some data from letxyz.txt file         
+
+                NOTE: There are several ways to deal with an asynchronous code: callbacks, promises and async/await.
+               ___________________________________________________________________________________
+               Q.2. now,when to use Synchronous function and when to use Asynchronous functions ??
+           
+               If your operations are NOT doing very heavy lifting like querying huge data from DB, then go ahead with Synchronous way otherwise Asynchronous way.
+             
+     
+******************************************************************************************************************************************************************
