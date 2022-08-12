@@ -1,7 +1,8 @@
-________________________________________________________________Synchronous vs Asynchronous_____________________________________________________________________________________________________________________
+___________________________________________________________________Synchronous vs Asynchronous_____________________________________________________________________________________________________________________
 
 
 -----> By default, JavaScript is a synchronous( ll wait ), single threaded programming language. (it means ,second command will wait for first command to be executed ....)
+       As a human being, we're multithreaded. we can drive and hold a conversation at the same time. The only blocking function we have to deal with is sneezing, where all current activity must be suspended for the duration of the sneeze.
 
 But this method (synchronous), comes along with disadvantages.
             Say we wanted to fetch some large amount of data from a database and then display it on our interface. 
@@ -32,13 +33,116 @@ asynchronous method -->{every single task will keep working in bg }, if the firs
                                            hello i am some data from letxyz.txt file 
 ________________________________________________________________________________________________________________________________________________________________________________________________________________
 
- NOTE: There are several ways to deal with an asynchronous code: callbacks, promises and async/await.
+ NOTE: There are several ways to deal with an asynchronous code: callbacks, promises and async/await.  (jha pe wait actual me nhi ho rha ,bt we ll let the code to wait before being exucuted wid help of such fns)
 
 //// In order to properly implement this asynchronous behavior, there are a few different solutions developers has used over the years. 
 //// Each solution improves upon the previous one, which makes the code more optimized and easier to understand in case it gets complex.
 //// To further understand the asynchronous nature of JavaScript, we will go through callback functions, promises, and async and await.
 
+Promises | callback functions, are similar ...in a sense that they both can be used to handle asynchronous tasks ( can be used to perform synchronous tasks.)
 
+
+_________________________________________________________________________________________________________________________________________________________________________________________________________________
 ???????????????????????????????????????????????????? WHAT ARE CALLBACKS IN JAVASCRIPT ??????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????? 
+
+ In JavaScript, you can also pass a function as an argument to a function. This function that is passed as an argument inside of another function is called a callback function. 
  If we want to execute a function right after the return of some other function, then callbacks can be used.
  A callback is a FUNCTION, passed as an argument to another function ; This technique allows a function to call another function ; A callback function can run after another function has finished
+
+ Note: The callback function is helpful when you have to wait for a result that takes time. For example, the data coming from a server because it takes time for data to arrive.
+
+      ||Example1: Program with setTimeout()
+      ||//  program that shows the delay in execution
+      ||function greet() {
+      ||    console.log('Hello world');
+      ||}
+      ||function sayName(name) {
+      ||    console.log('Hey' + ' ' + name);
+      ||}
+      ||setTimeout(greet, 2000);                            ------->Hey John
+      ||sayName('John');                                            Hello world
+      ||
+      ||The above code is executed asynchronously (the second function; sayName() does not wait for the first function; greet() to complete).
+
+        ||Example2: Using a Callback Function
+        ||// Callback Function Example
+        ||function greet(name, myFunction) {
+        ||    console.log('Hello world');
+        ||    // callback function
+        ||    // executed only after the greet() is executed
+        ||    myFunction(name);
+        ||}
+        ||// callback function
+        ||function sayName(name) {
+        ||    console.log('Hey' + ' ' + name);
+        ||}
+        ||// calling the function after 2 seconds
+        ||setTimeout(greet, 2000, 'John', sayName);         ------>Hello world
+        ||                                                         Hey John
+        ||In the above program, the code is executed synchronously. The sayName() function is passed as an argument to the greet() function.
+
+Note: The callback function is helpful when you have to wait for a result that takes time. For example, the data coming from a server because it takes time for data to arrive.
+
+
+_________________________________________________________________________________________________________________________________________________________________________________________________________________
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ WHAT ARE PROMISES IN JAVASCRIPT $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+*INTRO:-
+Promises are similar to callback functions in a sense that they both can be used to handle asynchronous tasks.( can be used to perform synchronous tasks.)
+The syntax is user-friendly and easy to read. (as comapred to callback fns)
+
+-Promises are the ideal choice for handling asynchronous operations in the simplest manner.
+-They can handle multiple asynchronous operations easily and provide better error handling than callbacks and events.
+-Benefits of Promises : Improves Code Readability , Better Error Handling , Better handling of asynchronous operations
+
+****SYNTAX:-
+    A promise can be created using Promise constructor fn.   ----->    var promise = new Promise(function(resolve, reject){
+                                                                            //do something
+                                                                       });
+
+****PARAMETERS:-
+    Promise constructor fn. takes only one argument, which is a callback function                                                   //(and that callback function is also referred as anonymous function too).
+                                                     and this callback fn takes two arguments --> resolve AND reject                                                   
+    then we need to Perform operations inside the callback function 
+                                                     and if desired operation went well, then call resolve.
+                                                     and If desired operation do not go well, then call reject.
+****PROMISE CONSUMERS:-
+    Promises can be consumed by registering functions using .then() and .catch() methods.
+
+    1. then()         ~then() is invoked when a promise is either resolved or rejected.
+                       It may also be defined as a career which takes data from promise and further executes it successfully.
+                
+                      ~then() method takes two functions as PARAMETERS. 
+                         -First function is executed if promise is resolved and a result is received.
+                         -Second function is executed if promise is rejected and an error is received.(It is optional, there is a better way to handle error using .catch() method)
+               
+    2. catch()        ~catch() is invoked when a promise is either rejected or some error has occurred in execution. 
+                       It is used as an Error Handler whenever at any step there is a chance of getting an error.
+                
+                      ~catch() method takes one function as parameter. 
+                          -Function to handle errors or promise rejections.
+                           .catch() method internally calls .then(null, errorHandler) means,  .catch() is just a shorthand for .then(null, errorHandler) 
+         
+                  
+****EXAMPLE:-                 
+           var promise = new Promise(function(resolve, reject) {
+               const x = "geeksforgeeks";
+               const y = "geeksforgeeks"
+               //if desired operation went well, then call resolve :)
+               if( x  ===  y) {
+                 resolve();
+               } else {
+                 reject();
+               }
+           });
+              
+           promise.
+               then(function () {
+                   console.log('Success, You are a GEEK');
+               }).
+               catch(function () {
+                   console.log('Some error has occurred');
+               });                                                   --------> Success, You are a GEEK
+
+_________________________________________________________________________________________________________________________________________________________________________________________________________________
+#################################################################################################################################################################################################################             

@@ -1,0 +1,1 @@
+this is normal test content inside fileincrud.txt file__________and this what we updated the file,with help of fs.appendfile() method
