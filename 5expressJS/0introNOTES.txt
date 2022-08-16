@@ -1,0 +1,223 @@
+_____________________________________________________________________________________________________________________________________________________________________________________________________________________
+WEB SERVER:
+      A web server is software and hardware that uses HTTP (Hypertext Transfer Protocol) and other protocols to respond to client requests made over the World Wide Web. 
+      The main job of a web server is to display website content through storing, processing and delivering webpages to users.
+      Besides HTTP, web servers also support SMTP (Simple Mail Transfer Protocol) and FTP (File Transfer Protocol), used for email, file transfer and storage.
+_____________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Q.What is Express.js?
+      Express.js is a web application server of Node.js framework. It is designed for building dynamic web applications.
+       It is the back end part of the MEAN stack package. It is launched in 2010 by TJ Holowaychuk
+Q.Why use Express.js?
+      With Express.js you will be able to build APIs in JavaScript. You can create, retrieve, update, and delete functionality.
+       It is a powerful tool for web app back-end or new back-end framework. It is a flexible and minimal Node.js web application framework. It provides a robust set of features. Express is a fast web framework.
+Q.Features of Express.js?
+       ~Rapid programming -  Express.js is quicker than Node.js. Express.js can easily do the complex task that can take too much of time in Node.js in fewer amounts of time and fewer line of code also.
+       ~Routing
+       ~Templating
+       ~Set up middleware  
+       ~Debugging
+Q.Requests by the client-?
+      When a basic program is written in Express.js 
+      then it CREATES various REQUESTS by the client. These requests are different HTTP verbs:-
+      GET ( it is accessing for a new web page)
+      POST ( it is for submitting the form data)
+      PUT ( for making the updation)
+      DELETE ( it is for deleting the particular record)     
+Q.example:-
+                const express = require('express');
+                const app = express();
+                
+                app.get('/', (req, res) =>{
+                   res.send("Hello word!");
+                });
+                app.get('/about', (req, res) =>{
+                   res.send("about page");
+                });
+                app.get('/help', (req, res) =>{
+                   res.send("help page");
+                });
+                app.listen(3000);
+Q.How it works?
+      app.get('route',(callback))-
+      This function is responsible for what to do when a get request at the given route is called. here,The callback has two parameters, req, and res.
+      res.send() -
+      This function takes the object as an input and forward it to the client.
+_______________________________________________________________________________________________________________________________________________________________________________________________________________________
+***********************************************************************************************************************************************************************************************************************
+we use express,node and npm must be pre-installed..
+to install express in this DIRECTORY(5expressjs), we ran a command 'npm i express',this installed express module to work with it,along with node_modules folder and 2 other files i.e. package-lock.json AND package.json
+
+***********************************************************************************************************************************************************************************************************************
+initially ,we made a server (which listens at 3000 port) {in index.js file} ,with various routes accordingly, to respond as per user request...
+           In each route, we SERVED various data to USER in various forms ..say- we served html code, whole html file (FROM PUBLIC DIRECTORY), json data, etc, etc.
+
+till now ,we only served static data/page (only html) to user...now if we need to serve dynamic data/page,then we gonna use EJS TEMPLATE ENGINE ..
+                                                                -EJS is mostly useful whenever you have to output HTML with a lot of javascript.
+                                                                -EJS Benefit:-1.EJS was so similar to HTML so I found it easy.
+                                                                              2.EJS uses all the JS jargon and logic, so if you are proficient in JS, you can use EJS right away.
+                                                                              3.EJS is way faster than other template engines ,say.. Jade and handlebars.
+                                                                              4.Simple template tags: <% %>.
+***********************************************************************************************************************************************************************************************************************
+                                                    COMPLETE EJS (TEMPLATING) TUTORIAL:-
+
+Now, the first thing we need to do is to set EJS as our templating engine with Express which is a Node.js web application server framework, 
+which is specifically designed for building single-page, multi-page, and hybrid web applications. 
+It has become the standard server framework for node.js.
+                                        
+                                        var express = require('express');        // Set express as Node.js web application server framework - "npm i express" command.
+                                        var app = express();                    
+                                        app.set('view engine', 'ejs');           // Set EJS as templating engine
+
+The default behavior of EJS is that it looks into the ‘views’ folder for the templates to render. So, let’s make a ‘views’ folder in our main node project folder and 
+make a file named “home.ejs” which is to be served on some desired request in our node project. 
+The content of this page “home.ejs” is: 
+                                        <!DOCTYPE html>
+                                        <html>
+                                        <head>
+                                            <title>Home Page</title>     
+                                            <style type="text/css" media="screen">
+                                                body {
+                                                    background-color: skyblue;
+                                                    text-decoration-color: white;
+                                                    font-size:7em;
+                                                }
+                                            </style>
+                                        </head>
+                                        <body>
+                                            <center>This is our home page.</center>
+                                        </body>
+                                        </html>   
+                                        
+Now, we will render this page “home.ejs” on a certain request by the user as:
+                                        
+                                        var express = require('express');       // Set express as Node.js web application server framework - "npm i express" command.
+                                        var app = express();                    
+                                        app.set('view engine', 'ejs');          // Set EJS as templating engine
+                                        app.get('/home', (req, res)=>{
+                                                res.render('home');             // The render method takes the name of the HTML page to be rendered as input
+                                        });                                     // This page should be in the views folder in the root directory.
+________________________
+okokok,now TO ADD DYNAMIC CONTENT this render method {in res.render()}, takes a second parameter which is an object. This is done as:
+
+                                        app.get('/home', (req, res)=>{                   // This page should be in the views folder in the root directory.
+                                                res.render('home', {name:'Akashdeep'});  // We can pass multiple properties n values as an object, here we are passing the only name
+                                        });                         
+
+Now, We will embed name to HTML page as:                                                                            
+                                        <!DOCTYPE html>
+                                        <html>
+                                        <head>
+                                            <title>Home Page</title>     
+                                            <style type="text/css" media="screen">
+                                                body {
+                                                    background-color: skyblue;
+                                                    text-decoration-color: white;
+                                                    font-size:7em;
+                                                }
+                                            </style>
+                                        </head>
+                                        <body>
+                                            <center>
+                                                This is our home page.
+                                                Welcome <%=name%>, to our home page.
+                                            </center>        
+                                        </body>
+                                        </html>   
+________________________
+so, EJS is used to embed dynamic content to the page and is used to embed normal JavaScript. Now embedding normal JavaScript: 
+ 
+                                        app.get('/home', (req, res)=>{                   // This page should be in the views folder in the root directory.
+                                                      var data = {name:'Akashdeep',
+                                                                  hobbies:['playing football', 'playing chess', 'cycling']}
+                                                res.render('home', {data:data}); 
+                                        });          
+Now, We will embed name to HTML page as:                                             
+                                          <!DOCTYPE html>
+                                        <html>
+                                        <head>
+                                            <title>Home Page</title>     
+                                            <style type="text/css" media="screen">
+                                                body {
+                                                    background-color: skyblue;
+                                                    text-decoration-color: white;
+                                                    font-size:7em;
+                                                }
+                                            </style>
+                                        </head>
+                                        <body>
+                                            Hobbies of <%=data.name%> are:<br/>
+                                            <ul>
+                                                <% data.hobbies.forEach((item)=>{%>
+                                                <li><%=item%></li>
+                                                <%});%>
+                                            </ul>     
+                                        </body>
+                                        </html>   
+
+AND ,OFCORS WHATEVER WE DID THROUGH ABOVE CODE IS AKA- "SERVER SIDE RENDERING".
+***********************************************************************************************************************************************************************************************************************
+till now , we did basic routing in expressJS ,where we sent responses in accordance with user requested routes,then we also served json data,static files,and also dynamic page through ejs.
+
+now, we gonna learn about middleWares:-
+***********************************************************************************************************************************************************************************************************************
+                                                           COMPLETE MIDDLEWARE TUTORIAL:-
+
+WHAT’S THE USE OF MIDDLEWARE?
+        with the help of middleware fns(gonna use with routes), we can access and modify the req and resp.....
+        but why do we modify them?
+             sometimes we need to check authentications(like users are loggedIn or not, OR perticular user of perticular age group are allowed to signUp or not),
+             or, sometimes we need to block our website in perticular country ,
+             In such cases ,middleWares came in game.......
+        
+        Middleware functions can perform the following tasks:
+             ~Execute any code.
+             ~Make changes to the request and the response objects.
+             ~End the request-response cycle.
+             ~Call the next middleware in the stack.
+
+WHAT’S MIDDLEWARE?
+   In layman terms, a web server is a function that inputs/takes a request AND outputs a response. so here,
+    middlewares are FUNCTIONS, which is executed after the incoming request (executed in the middle ,in between req and resp),  //can access n modify the req n resp.
+    which then produces an output. This output could either be
+                                     ~the final output, OR
+                                     ~used by the next middleware until the cycle is completed.
+    This in turn, means that we can have more than one middleware function and they will be executed in the order they are declared. In other words, this is a chain-like order.
+
+LETS IMPLIMENT MIDDLEWARES:
+   middleWare are just a normal fn,we can also make separste file if we hv too many middlewares.....
+
+
+                const express = require('express');     
+                const app = express();
+                
+                 const reqModi = (req,resp,next)=>{                 //here,reqModi fn is middleWare fn,taking 3 param- req,res,next
+                    console.log('this is from middleWare fn.!');    //here,only we write logic to check authentications n others........
+                    next();                                         //next fn let us use other routes below it 
+                 }
+                 app.use(reqModi);
+                
+                app.get('/', function(req, res){             //user cant be able to access this route, untill next fn being called (untill authentication is done succesfully) in above code snippet
+                    res.send("Hello from index2");                     
+                 });
+                
+                app.listen(3001);
+
+since now ,we learned basic working of middleWare fns......
+_________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+TYPES OF EXXPRESS MIDDLEWARE:-
+    1.Application level middleware , app.use()          ----->(used in above example) ,WHERE, single middleware is blocking/authenticating all routes in APPLICATION
+    2.Router level middleware ,      router.use()        -----> check below 
+    3.Built-in middleware ,          express.static(),express.json(),express.urlencoded()
+    4.Error handling middleware ,    app.use(err,req,res,next)
+    5.Thirdparty middleware ,        bodyparser,cookieparse
+_________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+out of above 5 ,we gonna study ROUTE LEVEL MIDDLEWARE in bit detail:
+
+with this , we gonna apply middleware on a perticular route ,OR  on a desired group of routes  //(rather wht we hv seen  in application level middleware,where 1 middleware blocking all routes)
+suppose we hv 40 routes in our website ,but we need to apple  middleWare in 2 or 3 routes only ,how we gonna do that:-
+
+/////////////////////////////////////////////for MORE, CHECK index2.js, index3.js, and index4.js///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+***********************************************************************************************************************************************************************************************************************
