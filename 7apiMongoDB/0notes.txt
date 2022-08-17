@@ -1,0 +1,7 @@
+mostly there are 4 kinds of api's:-
+ Get method/ GET API/ get api method      ---->used to get/read  data, from database, and then serve it to user   :0
+ post method/ POST API / post api method  ---->used to save (insert there) data, in database. (through api)
+ put method/PUT API /put api method       ---->used to update existing data in database.
+ delete method---->used to delete data from database.
+
+BASICALLY ,THIS IS EXTENSION OF 6mongoDB directory..........................

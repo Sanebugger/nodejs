@@ -4,7 +4,7 @@
 ---------------------*********************************************************************------------------------------------------
  path.join(path, ...) ------> this method provides you with a way to concatenate multiple path segments together to form a new path.
  The join() method accepts as many path parameters as you need. The paths are specified as string types and separated by a comma.
- The method will normalize the path segments and return a joined string path
+ The method will normalize the path segments and RETURNS a joined string path
 
  example1:           const path = require('path');
                      const myPath = path.join("users", "admin", "index.js");
@@ -15,12 +15,16 @@
                      console.log(myPath);                           ------> users/index.js
                      const anotherPath = path.join("home","users", "../admin", "index.js");
                      console.log(anotherPath);                      ------> home/admin/index.j
-                     console.log(anotherPath);                      ------> home/admin/index.j
     
 ---------------------*********************************************************************------------------------------------------
 
 
 ---------------------*********************************************************************------------------------------------------
+Note:-
+// console.log(__filename);             ----------------> D:\node.js-SERVER\3pathModule\1path.js              {even it works without path or fs module}
+// console.log(__dirname);              ----------------> D:\node.js-SERVER\3pathModule                       {even it works without path module}
+____________________________________________________________________________________________________________________________________
+
  path.dirname(path)  ----->this method provides the directory name of a path. Similar to the Unix dirname command
  This function accepts one parameter only,i.e  It is the file path (string only) that would be used to extract the directory name.
 

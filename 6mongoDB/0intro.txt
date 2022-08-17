@@ -1,0 +1,23 @@
+-> MongoDB is a document-oriented database management system (DBMS). 
+-> MongoDB is also a NoSQL database,   which means it does not use SQL to perform operations on a database.
+-> MongoDB uses documents that are in JSON-like format, known as BSON, which is the binary encoding of JSON.
+-> With Mongo being a NoSQL database, it has its own way of storing data.
+   Here are some of the constructs that make up the database structure:
+        ~ Database:-  The container that holds a set of collections.
+        ~ Collection:-  A set of documents.  This is similar to a table in an SQL database. However, unlike an SQL database, a collection does not have a set structure or pre-configured data types.
+        ~ Documents:-  A JSON-like object.  This is similar to a row in an SQL database. A JSON object may also contain child objects, an array, etc.
+        ~ _id:-   Mandatory unique field in every document. It separates one document from another, so we can identify each document independently. If this value is not provided, MongoDB automatically assigns a random value for the field.
+
+/////////////////////////////////////////////Connecting MongoDB with NodeJS///////////////////////////////////////////////////////////////////////////////////////////////
+
+In order to actually connect to the databse, you'll need to make sure your MongoDB service is running in the background or your development machine. 
+  ~(Run "mongo") on your command prompt to enter the Mongo shell    ~also Running the command "show dbs" will present a list of the current databases.
+
+// fow now ,we gonna use mongodbCompass GUI
+
+then, (run "npm install mongodb") we need to install the MongoDB driver and add a dependency entry in your package.json file. 
+
+Now you have downloaded and installed a mongodb database driver.
+now, Node.js can use this mongodb module to manipulate MongoDB databases.
+
+

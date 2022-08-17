@@ -28,7 +28,7 @@
 
 const htt =require ('http');
 htt.createServer((req,resp)=>{
-    resp.writeHead(200,{'content-Type':'application\json'});
+    resp.writeHead(200,{'content-Type':'application\json'});   // --> THIS LINE INCLUDES HTTP HEADER
 
     //  var jsObj = {name:'saurav',emial:'jkahsdi.com'};      -------this is js object-------
     resp.write(JSON.stringify({name:'saurav',emial:'jkahsdi.com'})) 

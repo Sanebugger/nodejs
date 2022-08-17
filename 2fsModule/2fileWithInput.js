@@ -24,7 +24,7 @@ fs.writeFileSync(input[2], input[3]); //here we needed to use  writeFileSync()  
 // #######################################################################################################################################################
 //                                      NODEJS  process.argv PROPERTY EXPLAINED
 //
-// NodeJS has a built-in module called process that provides you with the information related to your currently running NodeJS process.
+// NodeJS has a built-in module called process, that provides you with the information related to your currently running NodeJS process.
 // The process module is always available by default, so you don’t need to import it into your code using require() function.
 //
 // The process module has a property named argv that stores all the command-line arguments passed when you issue the command to start the NodeJS process.

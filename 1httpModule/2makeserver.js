@@ -24,7 +24,7 @@ const server = http.createServer((req, res) => {
         res.end('page not found')
     }
 })
-// Listening the server in the localhost and the port 3000 
+// Listening the server in the localhost and the port 5002
 server.listen(5002)
 
 
