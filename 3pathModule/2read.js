@@ -18,4 +18,3 @@ fs.readdir(dirpath,(err,filess)=>{
 })                                                   //        file name is :  Mfile1.txt
                                                      //        file name is :  Mfile2.txt
                                                      //        file name is :  Mfile3.txt
-    

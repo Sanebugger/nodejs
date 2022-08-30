@@ -16,6 +16,11 @@ htt.createServer((req,resp)=>{
 //  The require() function accepts a string as the name of the package and returns the package. 
 
 // In the next line of the code, we created an http server using the createServer() function of the http module.
+// The http.createServer() method turns your computer into an HTTP server.
+// The http.createServer() method creates an HTTP Server object.
+// The HTTP Server object can listen to ports on your computer and execute a function, a requestListener, each time a request is made.
+
+
 
 // At the last line of code, we used the listen() method of the server object with the argument 5001, so the server will listen at port 5001.
 

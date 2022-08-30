@@ -1,0 +1,4 @@
+in previos lesson(in 8mongoose),we did everything in a single file lyk connecting to db ,then making schemas, then sendind data to db,uptating data,... all in a single file
+now,
+in this lesson(in 9apiMongoose),we gonna use separate file for every such things,lyk what we do in real projects..
+                                here ,primarily we gonna make crud API's
