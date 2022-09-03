@@ -1,0 +1,110 @@
+-----------------------https://www.simplilearn.com/tutorials/nodejs-tutorial/nodejs-interview-questions-----------------------------------------------
+1. What is Node.js? Where can you use it?
+      Node.js is JavaScripts, runtime environment and library to run web applications outside the client’s browser. 
+      It is used to create server-side web applications.
+      Node.js is perfect for data-intensive applications as it uses an asynchronous, event-driven model. You can use  I/O intensive web applications like video streaming sites.
+      You can also use it for developing: Real-time web applications, Network applications, General-purpose applications, and Distributed systems.
+
+      what is server?
+      (The server-part in a client-server architecture; can be a software or a hardware, but in general the term referes a software.)
+      A server is a computer designed to process requests and deliver data to another computer over the internet or a local network.
+      // we create a server, to handle the request from client/frontend and serve response to them. //
+      // A common task of a web server is to open a file on the server and return the content to the client.//
+
+      backend includes a web server, that communicates with a database to serve requests .
+2. Why use Node.js?
+      is used to create server-side web applications,    is an open-source,   is asynchronous,   ......
+3. How does Node.js work?
+      A web server using Node.js typically has a workflow lyk:-
+      Clients send requests to the webserver to interact with the web application. Requests can be non-blocking or blocking:
+                        .Querying for data
+                        .Deleting data 
+                        .Updating the data
+                        .similiar operations
+      Node.js retrieves the incoming requests and adds those to the Event Queue
+      The requests are then passed one-by-one through the Event Loop. It checks if the requests are simple enough not to require any external resources
+      The Event Loop processes simple requests (non-blocking operations), such as I/O Polling, and returns the responses to the corresponding clients
+      A single thread from the Thread Pool is assigned to a single complex request. This thread is responsible for completing a particular blocking request by accessing external resources, such as computation, database, file system, etc.
+      
+      Once the task is carried out completely, the response is sent to the Event Loop that sends that response back to the client.
+4. Why is Node.js Single-threaded?
+      Node.js is single-threaded for async processing. By doing async processing on a single-thread under typical web loads, more performance and scalability can be achieved instead of the typical thread-based implementation.
+
+5. If Node.js is single-threaded, then how does it handle concurrency?
+      The Multi-Threaded Request/Response Stateless Model is not followed by the Node JS Platform, and it adheres to the Single-Threaded Event Loop Model. 
+      The Node JS Processing paradigm is heavily influenced by the JavaScript Event-based model and the JavaScript callback system. As a result, Node.js can easily manage more concurrent client requests. 
+      The event loop is the processing model's beating heart in Node.js.
+6. Explain callback in Node.js.
+      as the name says, A callback function is called after a given task. It allows other code to be run in the meantime and prevents any blocking.  Being an asynchronous platform, Node.js heavily relies on callback. All APIs of Node are written to support callbacks.
+
+7. What are the advantages of using promises instead of callbacks?
+      We've built-in error handling.
+      Improved readability.
+      The control flow of asynchronous logic is more specified and structured.
+      The coupling is low.
+10. Explain the difference between frontend and backend development?
+                          Front-end                                                       Back-end      
+      Frontend refers to the client-side of an application             Backend refers to the server-side of an application
+
+      It is the part of a web application that users can               It constitutes everything that happens behind the scenes
+      see and interact with
+
+      It typically includes everything that attributes to              It generally includes a web server,
+      the visual aspects of a web application                          that communicates with a database to serve requests
+                                                                   
+      HTML, CSS, JavaScript, AngularJS, and ReactJS,                   Java, PHP, Python, and Node.js are some of the backend
+      are some of the essentials of frontend development               development technologies
+      
+11. What is NPM?
+     NPM stands for Node Package Manager, responsible for managing all the packages / modules for Node.js.
+
+12. What are the modules in Node.js?
+     Modules are like JavaScript libraries that can be used in a Node.js application to include a set of functions.
+     To include a module in a Node.js application, use the require() function with the parentheses containing the module's name.
+
+     Node.js has many core/built-in modules(that comes with nodejs by-default) to provide the basic functionality needed for a web application. for eg:- HTTP,fs ,....
+17. What are some of the most commonly used libraries in Node.js?
+     There are two commonly used libraries in Node.js: 
+     ExpressJS - Express is a flexible Node.js web application framework that provides a wide set of features to develop web applications.
+     Mongoose - Mongoose is also a Node.js web application framework that makes it easy to connect an application to a database.
+
+19. What is the command used to import external libraries?
+     The “require” command is used for importing external libraries.
+     For example - “var http=require (“HTTP”).”  This will load the HTTP library and the single exported object through the HTTP variable.
+
+20. What does event-driven programming mean?
+     An event-driven programming approach uses, events to trigger various functions.
+     where the event can be anything, such as typing a key or clicking a mouse button. A call-back function is already registered with the element executes whenever an event is triggered.
+
+21. What is an Event Loop in Node.js?
+     Event loops handle asynchronous callbacks in Node.js. It is the foundation of the non-blocking input/output in Node.js, making it one of the most important environmental features.
+
+29. What are streams in Node.js?
+    Streams are objects that enable you to read data or write data continuously.
+    There are four types of streams:
+       Readable – Used for reading operations
+       Writable − Used for write operations
+       Duplex − Can be used for both reading and write operations
+       Transform − A type of duplex stream where the output is computed based on input.
+31. How do you create a simple server in Node.js that returns Hello World?
+     Import the HTTP module
+     Use createServer function with a callback function using request and response as parameters.   const htt =require ('http');
+     Set the server to listen to port 8080 and assign an IP address                                 htt.createServer((req,resp)=>{
+                                                                                                    resp.end('hello world from server');
+                                                                                                    }).listen(8080);
+32. Explain asynchronous and non-blocking APIs in Node.js.
+     All Node.js library APIs are asynchronous, which means they are also non-blocking
+     A Node.js-based server never waits for an API to return data. Instead, it moves to the next API after calling it, 
+     and a notification mechanism from a Node.js event responds to the server for the previous API call
+48. Explain the concept of middleware in Node.js.
+     Middleware is a function that receives the request and response objects. Most tasks that the middleware functions perform are:  
+            .Execute any code
+            .Update or modify the request and the response objects
+            .Finish the request-response cycle
+            .Invoke the next middleware in the stack
+49. What are the different types of HTTP requests?
+    HTTP defines a set of request methods used to perform desired actions. The request methods include:
+            GET: Used to retrieve the data
+            POST: Generally used to make a change in state or reactions on the server
+            HEAD: Similar to the GET method, but asks for the response without the response body
+            DELETE: Used to delete the predetermined resource

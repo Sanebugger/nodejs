@@ -1,4 +1,4 @@
-//SERVER --> we create a server, to see how the request and response between client and server works in NodeJs. 
+//SERVER --> we create a server, to handle the request from client/frontend and serve response to them.  
 //           A common task of a web server is to open a file on the server and return the content to the client.
 
 //How to create a server using NodeJS?
